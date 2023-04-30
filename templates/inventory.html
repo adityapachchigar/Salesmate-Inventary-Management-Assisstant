@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Salesmate</title>
+        <style>
+            header img {
+                height: 40px;
+                margin-left: 40px;
+            }
+            body {
+                height: 125vh;
+                background-size: cover;
+                font-family: sans-serif;
+                margin-top: 5px;
+                padding: 50px;
+            }
+            
+            main {
+                color: white;
+            }
+            
+            header {
+                background-color: white;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 80px;
+                display: flex;
+                align-items: center;
+            }
+            
+            header * {
+                display: inline;
+            }
+            
+            header li {
+                margin: 20px;
+            }
+            
+            header li a {
+                color: black;
+                text-decoration: none;
+            }
+            nav {
+                background-color: white;
+         
+              }
+            
+              .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+            
+              .logo-container img {
+                max-height: 50px;
+              }
+            
+              .nav-links {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+              }
+            
+              .nav-links li {
+                margin-left: 20px;
+              }
+            
+              .nav-links li:first-child {
+                margin-left: 0;
+              }
+            
+              .nav-links li a {
+                padding-left: 50px;
+                padding-right: 50px;
+                color: #333;
+                text-decoration: none;
+              }
+
+              nav a.f:hover {
+                background-color: rgb(51,96,245);
+                padding-left: 50px;
+                padding-right: 50px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: white;
+                border-radius : 30px;
+              }
+            
+              .grid-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* create 3 equal columns */
+                grid-gap: 1rem; /* add a gap between the items */
+              }
+
+              .grid-container-2 {
+                display: grid;
+                grid-template-columns: repeat(1fr, 2);
+                grid-gap: 1rem; /* add a gap between the items */
+              }
+              
+              .item {
+                background-color: white;
+                padding: 1rem;
+                margin-top: 90px;
+              }
+              .content{
+                color:gray;
+              }
+              .big{
+                font-size : 70px;
+                font-weight : 700;
+              }
+              .my-button {
+                background-color: rgb(234,64,80);
+                color: white; /* set the text color */
+                padding-top : 20px; /* set the padding */
+                padding-bottom : 20px;
+                padding-left : 40px;
+                padding-right : 40px;
+                border: none; /* remove the border */
+                border-radius: 30px; /* add some rounded corners */
+                font-size: 25px; /* set the font size */
+                cursor: pointer; /* change the mouse cursor on hover */
+                margin-top : 15px;
+              }
+              .sep{
+                background-color : rgb(234,64,80);
+                padding-left: 50px;
+                padding-right: 50px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border-radius : 30px;
+              }
+              .sep:hover{
+                background-color : rgb(234,64,80);
+              }
+              label[for="file-upload"] {
+                padding: 20px;
+                background-color: rgb(51,96,245);
+                color: #fff;
+                border-radius: 10px;
+                cursor: pointer;
+              }
+              
+              input[type="file"] {
+                display: none;
+              }
+
+              button[type="submit"]{
+                padding: 10px;
+                background-color: rgb(51,96,245);
+                color: #fff;
+                cursor: pointer;
+                margin-left : 10px;
+                border : none;
+                border-radius: 10px;
+
+              }
+              
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-container">
+                    <a href="/"><img src="static/logo.png" alt="Logo"></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/inventory" class="f">Upload</a></li>
+                    <li><a href="/print" class="f">View Sales</a></li>
+                    <li><a href="/recom" class="f">Recommendations</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="grid-container">
+            <div class="item"></div>
+            <div class="item">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="grid-container-2">
+                        <!-- <div class="item">
+                            <label for="file-upload">Choose Inventory File</label>
+                            <input type="file" id="file-upload" name="file" accept=".csv">
+                            <button type="submit">Upload</button>
+                        </div> -->
+                        <div class="item">
+                            <label for="file-upload">Choose Sales File</label>
+                            <input type="file" id="file-upload" name="file-upload">
+                            <button type="submit">Upload</button>
+                        </div>
+                        <h1>OR</h1>
+                        <label for="name">NAME</label>
+                        <input type="text" name="name" id="name">
+                        <label for="dom">DOMAIN</label>
+                        <input type="text" name="domain" id="domain">
+                        <input type="submit" value="Submit" name="ven">
+                    </div>
+                  </form>
+                  
+            </div>
+        </div>
+        
+    </body>
+</html>

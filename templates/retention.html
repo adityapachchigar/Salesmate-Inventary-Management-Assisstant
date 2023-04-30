@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Salesmate</title>
+        <style>
+            header img {
+                height: 40px;
+                margin-left: 40px;
+            }
+            body {
+                height: 125vh;
+                background-size: cover;
+                font-family: sans-serif;
+                margin-top: 5px;
+                padding: 50px;
+            }
+            
+            main {
+                color: white;
+            }
+            
+            header {
+                background-color: white;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 80px;
+                display: flex;
+                align-items: center;
+            }
+            
+            header * {
+                display: inline;
+            }
+            
+            header li {
+                margin: 20px;
+            }
+            
+            header li a {
+                color: black;
+                text-decoration: none;
+            }
+            nav {
+                background-color: white;
+         
+              }
+            
+              .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+            
+              .logo-container img {
+                max-height: 50px;
+              }
+            
+              .nav-links {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+              }
+            
+              .nav-links li {
+                margin-left: 20px;
+              }
+            
+              .nav-links li:first-child {
+                margin-left: 0;
+              }
+            
+              .nav-links li a {
+                padding-left: 50px;
+                padding-right: 50px;
+                color: #333;
+                text-decoration: none;
+              }
+
+              nav a:hover {
+                background-color: rgb(51,96,245);
+                padding-left: 50px;
+                padding-right: 50px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: white;
+                border-radius : 30px;
+              }
+            
+              .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* create 3 equal columns */
+                grid-gap: 1rem; /* add a gap between the items */
+              }
+
+              .grid-container-2 {
+                display: grid;
+                grid-template-columns: repeat(1fr, 2);
+                grid-gap: 1rem; /* add a gap between the items */
+              }
+              
+              .item {
+                background-color: white;
+                padding: 1rem;
+                margin-top: 90px;
+              }
+              .content{
+                color:gray;
+              }
+              .big{
+                font-size : 70px;
+                font-weight : 700;
+              }
+              .my-button {
+                background-color: rgb(234,64,80);
+                color: white; /* set the text color */
+                padding-top : 20px; /* set the padding */
+                padding-bottom : 20px;
+                padding-left : 40px;
+                padding-right : 40px;
+                border: none; /* remove the border */
+                border-radius: 30px; /* add some rounded corners */
+                font-size: 25px; /* set the font size */
+                cursor: pointer; /* change the mouse cursor on hover */
+                margin-top : 15px;
+              }
+              .sep{
+                background-color : rgb(234,64,80);
+                padding-left: 50px;
+                padding-right: 50px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border-radius : 30px;
+              }
+              .sep:hover{
+                background-color : rgb(234,64,80);
+              }
+              label[for="file-upload"] {
+                padding: 20px;
+                background-color: rgb(51,96,245);
+                color: #fff;
+                border-radius: 10px;
+                cursor: pointer;
+              }
+              
+              input[type="file"] {
+                display: none;
+              }
+
+              button[type="submit"]{
+                padding: 20px;
+                background-color: rgb(51,96,245);
+                color: white;
+                cursor: pointer;
+                margin-left : 40px;
+                margin-top : 20px;
+                border : none;
+                border-radius: 10px;
+                font-size:20px;
+              }
+              .bordered-div {
+                border: 1px solid black;
+              }
+              .question-label {
+                font-weight: bold;
+                font-size: 30px;
+                color: #333;
+            }
+            input[type='radio']{
+              margin-left: 40px;
+            }
+            li .a{
+              font-size: 30px;
+              font-weight: bolder;
+            }
+        </style>
+
+        <script>
+          function cal_score(){
+            var correct_ans=["yes","yes","yes","yes","yes","yes","yes","yes","yes"];
+            var user_ans=[];
+            user_ans.push(document.quiz.question2.value);
+            user_ans.push(document.quiz.question3.value);
+            user_ans.push(document.quiz.question4.value);
+            user_ans.push(document.quiz.question5.value);
+            user_ans.push(document.quiz.question6.value);
+            user_ans.push(document.quiz.question7.value);
+            user_ans.push(document.quiz.question8.value);
+            user_ans.push(document.quiz.question9.value);
+            user_ans.push(document.quiz.question10.value);
+            var score=0;
+            let wrg=[];
+            var tip=['A fast website is crucial for good user experience and retention.'
+            ,'Visuals are a great way to capture and retain user attention.',
+            'Many users access websites on their mobile devices, so make sure your website is mobile-friendly',
+            'Providing high-quality and informative content on your website or platform can help to establish your brand as an authority in your industry and build trust with your customers.',
+            'Use game-like elements such as points or badges to encourage users to engage with your website.',
+            'Use data to personalize the user experience and offer relevant content and recommendations.',
+            'A website that is user-friendly and intuitive can help to reduce frustration and make it easier for customers to find the information or products they are looking for.',
+            'Avoid using technical jargon or overly complex language that might confuse or frustrate users.',
+            'Display social proof such as customer reviews or ratings to build trust and credibility.',
+            'Ensuring that your website is secure and trustworthy can help to build customer confidence and encourage them to engage with your brand over the long term.'
+          ]
+          let tips="";
+            for(let i=0;i<correct_ans.length;i++){
+              if(user_ans[i]==correct_ans[i]){
+                score++;
+              }
+              else{
+                wrg.push(i);
+                tips+=tip[i]+"<br><br>";
+              }
+            }
+            alert(score);
+            if(score>=8){
+              document.getElementById('res').innerHTML="<p style='font-size:30px;'>Retension Score - "+score+"<br> <br> A great Retention score!! <br> <br>" +tips+" </p>" ;
+            }
+            else if(score<8 && score>5){
+              document.getElementById('res').innerHTML="<p style='font-size:30px;'>Retension Score - "+score+"<br> <br> Good Score But you can still improved!!<br> <br>"+tips+" </p>";
+            }
+            else if(score<=5){
+              document.getElementById('res').innerHTML="<p style='font-size:30px;'>Retension Score - "+score+"<br> <br> Alot of work is to be done to improve your retention score!!<br> <br>"+tips+" </p>";
+            }
+           
+            // res.innerHTML=score;
+
+          }
+          function submitForm(event) {
+			event.preventDefault();
+		}
+        </script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-container">
+                    <a href="#"><img src="static/logo.png" alt="Logo"></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="inventory.html">Upload</a></li>
+                    <li><a href="#">View Sales</a></li>
+                    <li><a href="/retention">Get Retention Score</a></li>
+                    <li><a href="#">Recommendations</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="grid-container">
+            <div class="item">
+                <form name="quiz" onsubmit="submitForm(event)">
+                    <ol class"ret">
+                      <li>
+                        <label class="question-label">Does the website load quickly and efficiently?</label> <br>
+                        <input type="radio" name="question1" value="yes" class="a">Yes
+                        <input type="radio" name="question1" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Is the website visually appealing?</label> <br>
+                        <input type="radio" name="question2" value="yes" class="a">Yes
+                        <input type="radio" name="question2" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Is the website mobile-friendly?</label> <br>
+                        <input type="radio" name="question3" value="yes" class="a">Yes
+                        <input type="radio" name="question3" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Does the website offer valuable and relevant content?</label> <br>
+                        <input type="radio" name="question4" value="yes" class="a">Yes
+                        <input type="radio" name="question4" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Is the website engaging and interactive? </label> <br>
+                        <input type="radio" name="question5" value="yes" class="a">Yes
+                        <input type="radio" name="question5" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Does the website provide personalized recommendations or suggestions?</label> <br>
+                        <input type="radio" name="question6" value="yes" class="a">Yes
+                        <input type="radio" name="question6" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Is the website easy to use and navigate?</label> <br>
+                        <input type="radio" name="question7" value="yes" class="a"> Yes
+                        <input type="radio" name="question7" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Does the website provide clear and concise information?</label> <br>
+                        <input type="radio" name="question8" value="yes" class="a">Yes
+                        <input type="radio" name="question8" value="no"class="a" >No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Does the website provide social proof? </label><br>
+                        <input type="radio" name="question9" value="yes" class="a">Yes
+                        <input type="radio" name="question9" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                      <li>
+                        <label class="question-label">Is the website secure and trustworthy?</label> <br>
+                        <input type="radio" name="question10" value="yes" class="a">Yes
+                        <input type="radio" name="question10" value="no" class="a">No
+                      </li>
+                      <br> <br> <br>
+                    </ol>
+                    <button type="submit" onclick="cal_score()" >Submit</button>
+                  </form>
+
+                  <p id="res"></p>
+                  
+            </div>
+        </div>
+        
+    </body>
+</html>
